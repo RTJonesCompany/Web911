@@ -7,4 +7,4 @@ from django.http import HttpResponse
 
 
 def index(request):
-    return HttpResponse("Welcome to the command center module for the web911 application.")
+     return render(request,'main/example.html')
