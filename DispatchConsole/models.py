@@ -25,7 +25,11 @@ class Location(models.Model):
     zipcode = models.CharField(max_length=10)
     lat = models.DecimalField(max_digits=8, decimal_places=3)
     lng = models.DecimalField(max_digits=8, decimal_places=3)
-
+    def __str__(self):
+        return self.address
+class Message(models.Model):
+    data = models.TextField()
+    timestamp = models.DateTimeField(auto_now='true')
 
 
 class IncidentStatus(models.Model):
@@ -44,11 +48,11 @@ class Incident(models.Model):
     nature = models.ForeignKey(IncidentNature)
     opened = models.DateTimeField(auto_now='true')
     closed = models.DateTimeField()
+    messages = models.ManyToManyField(Message)
 
-class Message(models.Model):
-    data = models.TextField()
-    timestamp = models.DateTimeField(auto_now='true')
+    def __str__(self):
+        return self.location.address
 
 class IncidentMessage(models.Model):
-    incident = models.ManyToManyField(Incident)
-    message = models.ManyToManyField(Message)
+            incident = models.ManyToManyField(Incident)
+            message = models.ManyToManyField(Message)
