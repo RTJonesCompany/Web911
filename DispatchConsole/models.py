@@ -43,6 +43,12 @@ class Incident(model.Models):
     Nature = models.ForeignKey(IncidentNature)
     opened = models.DateTimeField(auto_now='true')
     closed = models.DateTimeField()
+
 class Messages(models.Model)
     data = models.TextField()
     timestamp = models.DateTimeField(auto_now='true')
+
+class IncidentMessage(models.Model)
+    incident = models.models.ManyToManyField(Incident)
+    message = models.ManyToManyField(Message)
+    
