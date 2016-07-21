@@ -40,7 +40,7 @@ class IncidentNature(models.Model):
 
 class Incident(models.Model):
     location = models.ForeignKey(Location)
-    Nature = models.ForeignKey(IncidentNature)
+    nature = models.ForeignKey(IncidentNature)
     opened = models.DateTimeField(auto_now='true')
     closed = models.DateTimeField()
 
