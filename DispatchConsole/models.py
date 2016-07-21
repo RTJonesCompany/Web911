@@ -30,6 +30,8 @@ class Location(models.Model):
 class Message(models.Model):
     data = models.TextField()
     timestamp = models.DateTimeField(auto_now='true')
+    def __str__(self):
+         return '[ %s ] %s' % (self.timestamp, self.data)
 
 
 class IncidentStatus(models.Model):
@@ -49,10 +51,12 @@ class Incident(models.Model):
     opened = models.DateTimeField(auto_now='true')
     closed = models.DateTimeField()
     messages = models.ManyToManyField(Message)
+    units = models.ManyToManyField(Unit)
 
     def __str__(self):
         return self.location.address
-
-class IncidentMessage(models.Model):
-            incident = models.ManyToManyField(Incident)
-            message = models.ManyToManyField(Message)
+        
+# this class is not needed. I moved the messages into the incident instead of having a seprate table track it
+#class IncidentMessage(models.Model):
+            #incident = models.ManyToManyField(Incident)
+            #message = models.ManyToManyField(Message)
