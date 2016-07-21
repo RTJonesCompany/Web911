@@ -35,6 +35,7 @@ class IncidentStatus(models.Model):
 
 class IncidentNature(models.Model):
     description = models.CharField(max_length=255)
+    code = models.CharField(max_length=4)
     def __str__(self):
         return self.description
 
