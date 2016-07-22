@@ -2,17 +2,14 @@
 <script>
 $( document ).ready(function() {
 
-    $( "a" ).click(function( event ) {
-
-        alert( "As you can see, the link no longer took you to jquery.com" );
-
-        event.preventDefault();
-
-    });
-    $( "p" ).slideUp( 800 );
+  $(function () {
+    $('[data-toggle="popover"]').popover()
+  })
 
 });
 </script>
 
- <a href="http://jquery.com/">jQuery</a>
-<p> this is an example of text</p>
+<button type="button" class="btn btn-primary">Primary</button>
+
+<button type="button" class="btn btn-primary-outline">Primary</button>
+<button type="button" class="btn btn-lg btn-danger" data-toggle="popover" title="Popover title" data-content="And here's some amazing content. It's very engaging. Right?">Click to toggle popover</button>

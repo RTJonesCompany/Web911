@@ -1,13 +1,27 @@
 <!-- mouse over to see the assigned units ? -->
 <!-- div box with current assigned units and their status -->
 <!-- div slide out from the table -->
-<script type="javascript">
-$(function () {
-  $('[data-toggle="popover"]').popover()
+
+
+<script>
+$( document ).ready(function() {
+
+  $(function () {
+    $('[data-toggle="popover"]').popover()
+  })
+  
+  $('#current-incidents').on('click', '.clickable-row', function(event) {
+  if($(this).hasClass('active')){
+    $(this).removeClass('active');
+  } else {
+    $(this).addClass('active').siblings().removeClass('active');
+  }
 })
+});
 </script>
 
-<table class="table table-hover table-bordered">
+
+<table id="current-incidents" class="table table-hover table-bordered">
   <thead class="thead-inverse">
     <tr>
       <th>Call #</th>
@@ -17,9 +31,39 @@ $(function () {
       <th>County</th>
       <th>Latitude</th>
       <th>Longitude</th>
-      <tr>
+      <tr data-toggle="popover" data-placement="bottom" data-content="this is example data Vivamus
+sagittis lacus vel augue laoreet rutrum faucibus." data-container="body">
           <th scope="row" data-toggle="popover" data-placement="bottom" data-content="this is example data Vivamus
-    sagittis lacus vel augue laoreet rutrum faucibus." data-container="body"> 234151</th>
+    sagittis lacus vel augue laoreet rutrum faucibus." data-container="body">234151</th>
+          <td> Fire, Residental Structure</td>
+          <td> 230 SCHOOL ST</td>
+          <td> DUNCAN </td>
+          <td> SPARTANBURG </td>
+          <td> 00.000000 </td>
+          <td> 00.000000 </td>
+      </tr>
+      <tr data-toggle="popover" data-placement="bottom" data-content="this is example data Vivamus
+sagittis lacus vel augue laoreet rutrum faucibus." data-container="body">
+          <th scope="row">234151</th>
+          <td> Fire, Residental Structure</td>
+          <td> 230 SCHOOL ST</td>
+          <td> DUNCAN </td>
+          <td> SPARTANBURG </td>
+          <td> 00.000000 </td>
+          <td> 00.000000 </td>
+      </tr>
+      <tr data-toggle="popover" data-placement="bottom" data-content="this is example data Vivamus
+sagittis lacus vel augue laoreet rutrum faucibus." data-container="body">
+          <th>234151</th>
+          <td> Fire, Residental Structure</td>
+          <td> 230 SCHOOL ST</td>
+          <td> DUNCAN </td>
+          <td> SPARTANBURG </td>
+          <td> 00.000000 </td>
+          <td> 00.000000 </td>
+      </tr>
+      <tr>
+          <th>234151</th>
           <td> Fire, Residental Structure</td>
           <td> 230 SCHOOL ST</td>
           <td> DUNCAN </td>
