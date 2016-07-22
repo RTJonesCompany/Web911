@@ -1,0 +1,18 @@
+<!-- start js test -->
+<script>
+$( document ).ready(function() {
+
+    $( "a" ).click(function( event ) {
+
+        alert( "As you can see, the link no longer took you to jquery.com" );
+
+        event.preventDefault();
+
+    });
+    $( "p" ).slideUp( 800 );
+
+});
+</script>
+
+ <a href="http://jquery.com/">jQuery</a>
+<p> this is an example of text</p>
