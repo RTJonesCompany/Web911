@@ -6,13 +6,20 @@
 <script>
 $( document ).ready(function() {
 
+  $(function () {
+    $('[data-toggle="popover"]').popover()
+  })
+
+  $('#current-incidents').on('click', '.clickable-row', function(event) {
+  if($(this).hasClass('active')){
+    $(this).removeClass('active');
+  } else {
+    $(this).addClass('active').siblings().removeClass('active');
+  }
+})
 });
 </script>
-<style type="text/css">
-.hiddenRow {
-    padding: 0 !important;
-}
-</style>
+
 
 <table id="current-incidents" class="table table-hover table-bordered">
   <thead class="thead-inverse">
@@ -24,7 +31,8 @@ $( document ).ready(function() {
       <th>County</th>
       <th>Latitude</th>
       <th>Longitude</th>
-      <tr class="accordion-toggle collapsed"  data-toggle="collapse" data-target="#collapseTwo">
+      <tr data-toggle="popover" data-placement="bottom" data-content="this is example data Vivamus
+sagittis lacus vel augue laoreet rutrum faucibus." data-container="body">
           <th>234151</th>
           <td> Fire, Residental Structure</td>
           <td> 230 SCHOOL ST</td>
@@ -33,16 +41,7 @@ $( document ).ready(function() {
           <td> 00.000000 </td>
           <td> 00.000000 </td>
       </tr>
-      <tr>
-          <td colspan="6" class="hiddenRow">
-            <div id="collapseTwo" class="accordian-body collapse">
-           - Details 1 <br/>
-           - Details 2 <br/>
-           - Details 3 <br/>
-         </td>
-       </div>
-     </tr>
-
+    
 
       <tr data-toggle="popover" data-placement="bottom" data-content="this is example data Vivamus
 sagittis lacus vel augue laoreet rutrum faucibus." data-container="body">
