@@ -24,127 +24,51 @@ $( document ).ready(function() {
       <th>County</th>
       <th>Latitude</th>
       <th>Longitude</th>
-      <tr class="accordion-toggle collapsed"  data-toggle="collapse" data-target="#details1">
-          <th>1</th>
-          <td> Fire, Residental Structure</td>
-          <td> 230 SCHOOL ST</td>
-          <td> DUNCAN </td>
-          <td> SPARTANBURG </td>
-          <td> 00.000000 </td>
-          <td> 00.000000 </td>
-      </tr>
-      <tr>
-          <td colspan="7" class="hiddenRow">
 
-            <div id="details1" class="accordian-body collapse">
-              <a style="float:left; margin-right:40px;" class="btn btn-danger" href="#">
-                <i class="fa fa-terminal"></i> open
-              </a>
-              <div id="data" style="font-size:large">
-           - [ 2016-07-21 04:34:54 ] E-1,
-              E-3,
-              E-4
-              {ON SCENE}
-            </div>
+        {% for item in incidents %} <!-- dynamic data -->
+            <tr class="accordion-toggle collapsed"  data-toggle="collapse" data-target="#details{{item.id}}"> <!-- create a row -->
+            <th scope="row"> {{ item.id }} </th>
+            <td> {{ item.nature }} </td>
+            <td> {{item.location }} </td>
+            <td> {{item.location.city}}</td>
+            <td> {{item.location.county}} </td>
+            <td> {{item.location.lat}} </td>
+            <td> {{item.location.lng}} </td>
+            </tr> <!-- end the row -->
 
-           </div>
-         </td>
+            <tr> <!-- start details view space -->
+                <td colspan="7" class="hiddenRow">
 
-     </tr>
-     <tr class="accordion-toggle collapsed"  data-toggle="collapse" data-target="#details2">
-         <th>2</th>
-         <td> Fire, Residental Structure</td>
-         <td> 230 SCHOOL ST</td>
-         <td> DUNCAN </td>
-         <td> SPARTANBURG </td>
-         <td> 00.000000 </td>
-         <td> 00.000000 </td>
-     </tr>
-     <tr>
-         <td colspan="7" class="hiddenRow">
+                  <div id="details{{item.id}}" class="accordian-body collapse">
+                    <a style="float:left; margin-right:40px;" class="btn btn-danger" href="#">
+                      <i class="fa fa-terminal"></i> open
+                    </a>
+                    <div id="data" style="font-size:large">
+                 - [ 2016-07-21 04:34:54 ] E-1,
+                    E-3,
+                    E-4
+                    {ON SCENE}
+                  </div>
 
-           <div id="details2" class="accordian-body collapse">
-             <a style="float:left; margin-right:40px;" class="btn btn-danger" href="#">
-               <i class="fa fa-terminal"></i> open
-             </a>
-             <div id="data" style="font-size:large">
-          - [ 2016-07-21 04:34:54 ] E-1,
-             E-3,
-             E-4
-             {ON SCENE}
-           </div>
+                 </div>
+               </td>
 
-          </div>
-        </td>
+           </tr> <!-- end details view space -->
+        {% endfor %}
 
-    </tr>
-    <tr class="accordion-toggle collapsed"  data-toggle="collapse" data-target="#details3">
-        <th>3</th>
-        <td> Fire, Residental Structure</td>
-        <td> 230 SCHOOL ST</td>
-        <td> DUNCAN </td>
-        <td> SPARTANBURG </td>
-        <td> 00.000000 </td>
-        <td> 00.000000 </td>
-    </tr>
-    <tr>
-        <td colspan="7" class="hiddenRow">
-
-          <div id="details3" class="accordian-body collapse">
-            <a style="float:left; margin-right:40px;" class="btn btn-danger" href="#">
-              <i class="fa fa-terminal"></i> open
-            </a>
-            <div id="data" style="font-size:large">
-         - [ 2016-07-21 04:34:54 ] E-1,
-            E-3,
-            E-4
-            {ON SCENE}
-          </div>
-
-         </div>
-       </td>
-
-   </tr>
-   <tr class="accordion-toggle collapsed"  data-toggle="collapse" data-target="#details4">
-       <th>4</th>
-       <td> Fire, Residental Structure</td>
-       <td> 230 SCHOOL ST</td>
-       <td> DUNCAN </td>
-       <td> SPARTANBURG </td>
-       <td> 00.000000 </td>
-       <td> 00.000000 </td>
-   </tr>
-   <tr>
-       <td colspan="7" class="hiddenRow">
-
-         <div id="details4" class="accordian-body collapse">
-           <a style="float:left; margin-right:40px;" class="btn btn-danger" href="#">
-             <i class="fa fa-terminal"></i> open
-           </a>
-           <div id="data" style="font-size:large">
-        - [ 2016-07-21 04:34:54 ] E-1,
-           E-3,
-           E-4
-           {ON SCENE}
-         </div>
-
-        </div>
-      </td>
-
-  </tr>
 
   </thead>
 
     <!-- dynamic code below -->
-  <!--  <p>{{testdata }} </p>
-    {% for item in Units %}
+    <!--
+    {% for item in incidents %}
     <tr>
-        <th scope="row"> {{ item.handle }} </th>
-        <td> {{ item.name }} </td>
-        <td> {{item.typeid }} </td>
+        <th scope="row"> {{ item.id }} </th>
+        <td> {{ item.location }} </td>
+        <td> {{item.nature }} </td>
         <td> facility </td>
     </tr>
-    {% endfor %}
-  -->
+    {% endfor %}-->
+
   </tbody>
 </table>

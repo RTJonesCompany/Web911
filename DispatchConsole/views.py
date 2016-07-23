@@ -5,4 +5,5 @@ from DispatchConsole.services import get_incident_list
 from django.http import HttpResponse
 #this index loads a example template with snippets {ryan}
 def index(request):
-    return render(request,'main/current.html', get_incident_list)
+    all_incidents = get_incident_list()
+    return render(request,'main/current.html', {"incidents": all_incidents})
