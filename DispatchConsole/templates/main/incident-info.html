@@ -1,0 +1,7 @@
+<!-- this is the page is loaded into the main template and injects the block content from jinja into the html page {exmaple.html} -->
+{% extends "main/main-template.html" %}
+
+{% block content %}
+  <p>Current Situation</p>
+  {% include "main/includes/show-info.html" %}
+{% endblock %}
