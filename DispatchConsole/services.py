@@ -1,5 +1,11 @@
 from DispatchConsole.models import Incident, Location,IncidentNature,Message,Unit
 
-def get_incident_list():
+class incidentdata:
+    #must indent
+    def get_incident_list():
 
-    return Incident.objects.all()
+        return Incident.objects.all()
+
+    def get_incident(id):
+
+        return Incident.objects.get(pk=id)
