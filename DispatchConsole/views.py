@@ -7,4 +7,4 @@ from django.http import HttpResponse
 def index(request):
     all_incidents = incidentdata.get_incident_list()
     
-    return render(request,'main/current.html', {"incidents": all_incidents, "onecall" : onecall})
+    return render(request,'main/current.html', {"incidents": all_incidents})

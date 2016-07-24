@@ -1,4 +1,5 @@
 from DispatchConsole.models import Incident, Location,IncidentNature,Message,Unit
+from django.shortcuts import get_object_or_404
 
 class incidentdata:
     #must indent
@@ -8,4 +9,4 @@ class incidentdata:
 
     def get_incident(id):
 
-        return Incident.objects.get(pk=id)
+        return get_object_or_404(Incident, pk=id)
