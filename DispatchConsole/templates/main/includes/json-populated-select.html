@@ -1,0 +1,25 @@
+{% load staticfiles%}
+<select id="first-choice">
+</select>
+
+<script type="text/javascript">
+
+
+$( document ).ready(function() {
+   console.log( "document loaded" );
+    $.getJSON( "{% static "states.json" %}", function( data ) {
+      var options ='<option selected="selected" value="0">- Select -</option>';
+
+        console.log(data);
+        //notes with this type of json data there is no accessable lenght param. Because of this structure .each must be used to illierate through the values.
+        $.each( data, function( key, val ){
+          options += '<option value="' + val + '">' + key + '</option>';
+        });
+        $("#first-choice").html(options);
+
+      });
+
+console.log( "json should have loaded" );
+});
+
+ </script>

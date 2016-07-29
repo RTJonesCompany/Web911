@@ -1,5 +1,8 @@
 from django.db import models
 
+
+
+
 # Create your models here.
 class UnitType(models.Model):
     description = models.CharField(max_length=255)
@@ -55,7 +58,7 @@ class Incident(models.Model):
 
     def __str__(self):
         return self.location.address
-        
+
 # this class is not needed. I moved the messages into the incident instead of having a seprate table track it
 #class IncidentMessage(models.Model):
             #incident = models.ManyToManyField(Incident)
