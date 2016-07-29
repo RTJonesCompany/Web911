@@ -1,6 +1,8 @@
 #from googlemaps import client
 from django.shortcuts import render, get_object_or_404
 import json
+import requests
+
 from DispatchConsole.services import incidentdata
 
 # Create your views here.
@@ -45,10 +47,11 @@ def location_create(request):
         #print (addrstring)
         #latlng = gmaps.geocode(addrstring)
         #r = request.get("https://maps.googleapis.com/maps/api/geocode/json?"+addrstring="&key="+api)
-        #r = request.get('https://maps.googleapis.com/maps/api/geocode/json?address=1600+Amphitheatre+Parkway,+Mountain+View,+CA&key=AIzaSyDNpsBSt_WLcBArOssZJ-iBaZDJzgrTMks')
-        #json = r.json()
+    #!! WORKING REQUESTS.GET
+    #r = requests.get('https://maps.googleapis.com/maps/api/geocode/json?address=1600+Amphitheatre+Parkway,+Mountain+View,+CA&key=AIzaSyDNpsBSt_WLcBArOssZJ-iBaZDJzgrTMks')
+    #json = r.json()
 
-        #print(json)
+    #print(json)
 
     #data to pass
     context =   {
